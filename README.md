@@ -1,11 +1,14 @@
 <div align="center">
 <p align="center">
-    <img src="https://www.sketchup.com/themes/sketchup_www_terra/images/SketchUp-Horizontal-RGB.svg" width="200" alt="Logo"/>
+    <img src="https://raw.githubusercontent.com/yorik1984/sketchup.nvim/main/assets/logo/logo-sketchup.nvim.png" width="200" alt="Logo"/><br/>
 </p>
+
 # sketchup.nvim
 
 ![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
+
+</div>
 
 **_Changelog_**
 
@@ -16,7 +19,7 @@
 
 ## ℹ️ Info
 
-Neovim plugin for Sketchup API development.
+Neovim plugin for [SketchUp](https://sketchup.com/) API development.
 
 ## 🌟 Features
 
