@@ -43,7 +43,8 @@
   "TextVerticalAlignBaseline" "TextVerticalAlignCapHeight"
   "TextVerticalAlignCenter" "SKETCHUP_CONSOLE" "FILE_WRITE_OK"
   "FILE_WRITE_FAILED_INVALID_TYPE" "FILE_WRITE_FAILED_UNKNOWN"
-  "SnapTo_Arbitrary" "SnapTo_Horizontal" "SnapTo_Vertical" "SnapTo_Sloped" ))
+  "SnapTo_Arbitrary" "SnapTo_Horizontal" "SnapTo_Vertical" "SnapTo_Sloped")
+  (#set! "priority" 125))
 
 ;;; constants
 ((constant) @definition.constant.sketchup
@@ -163,7 +164,8 @@
   "ROPSetSectionInactiveColor" "ROPSetSkyColor" "ROPSetTexture"
   "ROPSetTransparencyObsolete" "ROPSetXRayOpacity" "ROPTransparencySortMethod"
   "ROPSetFaceColorMode" "STYLE_WINDOW" "STYLE_DIALOG" "STYLE_UTILITY"
-  "CEF_VERSION" "CHROME_VERSION" ))
+  "CEF_VERSION" "CHROME_VERSION")
+  (#set! "priority" 125))
 
 ;;; SU Modules
 ([
@@ -172,7 +174,8 @@
   (scope_resolution scope: (constant) @definition.namespace.sketchup)
   (scope_resolution name: (constant) @definition.namespace.sketchup)
   ] (#any-of? @definition.namespace.sketchup
-  "Geom" "Http" "Layout" "Licensing" "RegionalSettings" "Sketchup" "Skp" "UI" ))
+  "Geom" "Http" "Layout" "Licensing" "RegionalSettings" "Sketchup" "Skp" "UI")
+  (#set! "priority" 125))
 
 ;;; SU Classes
 ([
@@ -206,43 +209,63 @@
   "Style" "Styles" "Table" "TableCell" "TableColumn" "TableRow" "Text" "Texture"
   "TextureWriter" "Tool" "Toolbar" "Tools" "ToolsObserver" "Transformation"
   "Transformation2d" "UTM" "UVHelper" "Vector2d" "Vector3d" "Vertex" "View"
-  "ViewObserver" "ReferenceEntity" "Overlay" "OverlaysManager" ))
+  "ViewObserver" "ReferenceEntity" "Overlay" "OverlaysManager")
+  (#set! "priority" 125))
+
+;;; SU DC Classes
+([
+  (class name: (constant)@definition.type.sketchup)
+  (superclass (constant) @definition.type.sketchup)
+  (call receiver: (constant) @definition.type.sketchup)
+  (scope_resolution scope: (constant) @definition.type.sketchup)
+  (scope_resolution name: (constant) @definition.type.sketchup)
+  ] (#any-of? @definition.type.sketchup
+  "DCProgressBar")
+  (#set! "priority" 125))
 
 ;;; SU Operators
-[
- "%"
- "*"
- "+"
- "-"
- "<"
- "<="
- "<=>"
- "=="
- ">"
- ">="
- "["
- "]"
- ] @definition.type.sketchup
+([
+  "%"
+  "*"
+  "+"
+  "-"
+  "<"
+  "<="
+  "<=>"
+  "=="
+  ">"
+  ">="
+  ] @operator.sketchup
+  (#set! "priority" 125))
+
+;;; SU brackets
+([
+  "["
+  "]"
+  ] @punctuation.bracket.sketchup
+  (#set! "priority" 125))
 
 ;;; SU Methods
 ;;; method?
 ((call method: (identifier) @definition.method.sketchup)
- (#vim-match? @definition.method.sketchup
-  "^(active|always_face_camera|arrow_type_filled|auto_scale|break_edges|camera_modified|casts_shadows|circular|clip_to_margins|closed|contains|convex|current_scene_modified|curve_interior|custom_text|cuts_opening|debug_mode|deleted|display|display_background|display_file_extension|display_full_path|display_leader|drawing_element_visible|effects_modified|empty|equals|file_loaded|fix_shadow_strings|fov_is_height|georeferenced|grid_snap_enabled|group|has_aligned_text|has_key|has_leader|hidden|identity|image|in_front|in_presentation|include|include_in_animation|inference_locked|internal|is2d|is_2d|is_64bit|is_curve|is_polygon|is_pro|is_surface|is_valid_filename|key|layer_visible|layers_modified|licensed|live_component|load_on_start|loaded|locked|mandatory|manifold|mipmapping|modified|navigation_buttons_enabled|no_scale_mask|object_snap_enabled|on_line|on_plane|on_shared_layer|outer|parallel|perpendicular|perspective|plugins_disabled|preserve_scale_on_resize|print|print_margins|print_paper_color|receives_shadows|registered|render_needed|reversed|reversed_in|same_direction|samedirection|shadows_face_sun|shared|show|show_major|show_margins|show_minor|single_object|smooth|soft|style_modified|supports_options|texture_positioned|texture_projected|toolbar_visible|unit_vector|unitvector|use_alpha|use_axes|use_camera|use_hidden|use_hidden_geometry|use_hidden_layers|use_hidden_objects|use_rendering_options|use_section_planes|use_shadow_info|use_style|used_by|valid|visible|visible_on_new_pages)[?]$"))
+  (#vim-match? @definition.method.sketchup  "^(active|always_face_camera|arrow_type_filled|auto_scale|break_edges|camera_modified|casts_shadows|circular|clip_to_margins|closed|contains|convex|current_scene_modified|curve_interior|custom_text|cuts_opening|debug_mode|deleted|display|display_background|display_file_extension|display_full_path|display_leader|drawing_element_visible|effects_modified|empty|equals|file_loaded|fix_shadow_strings|fov_is_height|georeferenced|grid_snap_enabled|group|has_aligned_text|has_key|has_leader|hidden|identity|image|in_front|in_presentation|include|include_in_animation|inference_locked|internal|is2d|is_2d|is_64bit|is_curve|is_polygon|is_pro|is_surface|is_valid_filename|key|layer_visible|layers_modified|licensed|live_component|load_on_start|loaded|locked|mandatory|manifold|mipmapping|modified|navigation_buttons_enabled|no_scale_mask|object_snap_enabled|on_line|on_plane|on_shared_layer|outer|parallel|perpendicular|perspective|plugins_disabled|preserve_scale_on_resize|print|print_margins|print_paper_color|receives_shadows|registered|render_needed|reversed|reversed_in|same_direction|samedirection|shadows_face_sun|shared|show|show_major|show_margins|show_minor|single_object|smooth|soft|style_modified|supports_options|texture_positioned|texture_projected|toolbar_visible|unit_vector|unitvector|use_alpha|use_axes|use_camera|use_hidden|use_hidden_geometry|use_hidden_layers|use_hidden_objects|use_rendering_options|use_section_planes|use_shadow_info|use_style|used_by|valid|visible|visible_on_new_pages)[?]$")
+  (#set! "priority" 125))
 
 ;;; method!
 ((call
   method: (identifier) @definition.method.sketchup)
- (#vim-match? @definition.method.sketchup "^(clear|copy|erase|invert|move|normalize|offset|reverse|set|transform)[!]$"))
+  (#vim-match? @definition.method.sketchup "^(clear|copy|erase|invert|move|normalize|offset|reverse|set|transform)[!]$")
+  (#set! "priority" 125))
 
 ;;; method=
 (assignment left: (call
   method: (identifier) @definition.method.sketchup)
- (#vim-match? @definition.method.sketchup "^(always_face_camera|animation|auto_scale|break_edges|casts_shadows|clip_to_margins|cuts_opening|debug_mode|delay_time|display_background|display_file_extension|display_full_path|display_leader|drawing_color|dynamic|end_offset_length|extension|fill_color|fix_shadow_strings|folder|grid_snap_enabled|has_aligned_text|hidden|image_width|in_front|in_presentation|include_in_animation|is2d|line_stipple|line_width|locked|mipmapping|navigation_buttons_enabled|no_scale_mask|object_snap_enabled|perspective|plugins_disabled|preserve_scale_on_resize|print|print_margins|print_paper_color|receives_shadows|shadows_face_sun|show_major|show_margins|show_minor|smooth|soft|start_offset_length|status_text|suppress_dimension_units|symbol|tags|template|text|use_axes|use_camera|use_hidden|use_hidden_geometry|use_hidden_layers|use_hidden_objects|use_rendering_options|use_section_planes|use_shadow_info|use_style|vcb_label|vcb_value|visible|visible_on_new_pages|sequence_type|thumbnail_camera)$"))
+  (#vim-match? @definition.method.sketchup "^(always_face_camera|animation|auto_scale|break_edges|casts_shadows|clip_to_margins|cuts_opening|debug_mode|delay_time|display_background|display_file_extension|display_full_path|display_leader|drawing_color|dynamic|end_offset_length|extension|fill_color|fix_shadow_strings|folder|grid_snap_enabled|has_aligned_text|hidden|image_width|in_front|in_presentation|include_in_animation|is2d|line_stipple|line_width|locked|mipmapping|navigation_buttons_enabled|no_scale_mask|object_snap_enabled|perspective|plugins_disabled|preserve_scale_on_resize|print|print_margins|print_paper_color|receives_shadows|shadows_face_sun|show_major|show_margins|show_minor|smooth|soft|start_offset_length|status_text|suppress_dimension_units|symbol|tags|template|text|use_axes|use_camera|use_hidden|use_hidden_geometry|use_hidden_layers|use_hidden_objects|use_rendering_options|use_section_planes|use_shadow_info|use_style|vcb_label|vcb_value|visible|visible_on_new_pages|sequence_type|thumbnail_camera)$")
+  (#set! "priority" 125))
 
 ((call
   method: (identifier) @definition.method.sketchup)
- (#any-of? @definition.method.sketchup
+  (#any-of? @definition.method.sketchup
   "abort_operation" "activate" "active" "active_entities" "active_layer"
   "active_model" "active_path" "active_section_plane" "active_style"
   "active_style_changed" "active_tool" "active_tool_id" "active_tool_name"
@@ -393,4 +416,5 @@
   "winding" "window_pick" "write" "write_all" "write_default" "write_image"
   "write_thumbnail" "x" "xaxis" "y" "yard" "yaxis" "z" "zaxis" "zone_letter"
   "zone_number" "zoom" "zoom_extents" "zrotation" "resize_viewport" "overlays"
-  "sequence_type" ))
+  "sequence_type")
+  (#set! "priority" 125))

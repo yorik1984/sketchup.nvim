@@ -39,10 +39,9 @@ Install via your favorite package manager:
 ```lua
 require("lazy").setup({
     "yorik1984/sketchup.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
     event = "BufEnter *.rb",
-    init = function()
-        vim.g.sketchup_ruby_enabled = true
-    end
+    config = true,
 })
 ```
 
