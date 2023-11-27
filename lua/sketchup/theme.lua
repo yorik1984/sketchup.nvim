@@ -20,7 +20,7 @@ function M.setup(configColors, configStyle)
 
     theme.treesitterDefaultColors = {
         ["@operator.sketchup.ruby"]             = { link = "@operator.ruby" },
-        ["@@punctuation.bracket.sketchup.ruby"] = { link = "@punctuation.bracket.ruby" },
+        ["@punctuation.bracket.sketchup.ruby"]  = { link = "@punctuation.bracket.ruby" },
         ["@definition.constant.sketchup.ruby"]  = { link = "@constant.ruby" },
         ["@definition.method.sketchup.ruby"]    = { link = "@function.call.ruby" },
         ["@definition.type.sketchup.ruby"]      = { link = "@type.ruby" },
