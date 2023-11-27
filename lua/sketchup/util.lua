@@ -64,12 +64,12 @@ end
 function M.autocmds(colors)
     local group = vim.api.nvim_create_augroup("sketchup", {})
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
-        group =  group,
+        group = group,
         pattern = { "*.rb" },
         callback = function()
             require("sketchup.util").syntax(colors)
         end,
-        })
+    })
 end
 
 function M.colorOverrides(colors, configColors)

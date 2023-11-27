@@ -3,6 +3,7 @@ local util = require("sketchup.util")
 local M = {}
 
 function M.setup(config)
+    -- stylua: ignore start
 
     local SUColors = {
         SketchUpOperator = (vim.o.background == "dark") and "#4646FF" or "#0000FF",
