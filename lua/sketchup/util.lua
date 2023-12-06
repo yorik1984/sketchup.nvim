@@ -2,13 +2,10 @@ local check = require("sketchup.check")
 local M = {}
 
 function M.contains(tbl, string)
-    for k, v in pairs(tbl) do
-        if type(v) == "table" then
-            if M.contains(tbl[k], string) then
-                return true
-            end
-        end
+    for _, v in pairs(tbl) do
         if v == string then
+            return true
+        elseif type(v) == "table" and M.contains(v, string) then
             return true
         end
     end

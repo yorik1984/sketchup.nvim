@@ -1,12 +1,7 @@
 local M = {}
 
 function M.setupStyle(config)
-    local style = {}
-    for key, value in pairs(config.theme.style) do
-       style[key] = value
-    end
-
-    return style
+    return config.theme.style
 end
 
 return M
